@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>NOW IN THEATER</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/active.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <style>
+        .container{
+            display: flex;
+            flex-flow: row wrap;
+            justify-items: center;
+            justify-content: center;
+        }
+
+        .container > div{
+            flex-basis:  25%;
+            flex : 0;
+            margin: 8px;
+            border:1px solid rgb(252, 252, 252);
+            padding: 8px;
+            cursor: pointer;
+            box-sizing: border-box;
+
+        }
+    </style>
+    <div id="wrap">
+        <!-- skipnav -->
+        <div class="skipNav">
+            <ul>
+                <li><a href="#header">상단 정보로 이동</a></li>
+                <li><a href="#content">본문으로 이동</a></li>
+                <li><a href="#footer">하단 정보로 이동</a></li>
+            </ul>
+        </div>
+        <!-- 헤더 -->
+        <header id="header">
+            <nav>
+                <div class="inner">
+                    <div class="mo_top-header">
+                        <h1 class="logo"><a href="index.html"><img src="img/logo.png" alt=""></a></h1>
+                        <button class="open_menu-btn"></button>
+                    </div>
+                    <div class="mo_menu">
+                        <div class="top">
+                            <button class="close_menu-btn"></button>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu_sns">
+                                <ul>
+                                    <li class="sns-youtube"><a href="https://www.youtube.com/SHOWBOXmovie" target="_blank"></a></li>
+                                    <li class="sns-instagram"><a href="https://www.instagram.com/showbox.movie/" target="_blank"></a></li>
+                                    <li class="sns-facebook"><a href="https://www.facebook.com/Showbox.Movie" target="_blank"></a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="title">SHOWBOX MOVIE</a>
+                                <ul class="sub-menu">
+                                    <li><a href="lineup.html">LINE-UP</a></li>
+                                    <li><a href="now.html">NOW IN THEATERS</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="title">COMPANY</a>
+                                <ul class="sub-menu">
+                                    <li><a href="company.html">SHOWBOX</a></li>
+                                    <li><a href="history.html">HISTORY</a></li>
+                                    <li><a href="map.html">MAP</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="title">IR</a>
+                                <ul class="sub-menu">
+                                    <li><a href="notice.html">NOTICE</a></li>
+                                    <li><a href="recruit.html">RECRUIT</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dt_menu">
+                        <ul>
+                            <li><a href="lineup.html">SHOWBOX MOVIE</a></li>
+                            <li><a href="company.html">COMPANY</a></li>
+                            <li><a href="notice.html">IR</a></li>
+                        </ul>
+                        <div class="sub-menu">
+                            <ul>
+                                <li>
+                                    <a href="lineup.html" class="title">SHOWBOX MOVIE</a>
+                                    <ul>
+                                        <li><a href="lineup.html">LINE-UP</a></li>
+                                        <li><a href="now.html">NOW IN THEATERS</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="company.html" class="title">COMPANY</a>
+                                    <ul>
+                                        <li><a href="company.html">SHOWBOX</a></li>
+                                        <li><a href="history.html">HISTORY</a></li>
+                                        <li><a href="map.html">MAP</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="notice.html" class="title">IR</a>
+                                    <ul>
+                                        <li><a href="notice.html">NOTICE</a></li>
+                                        <li><a href="recruit.html">RECRUIT</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div id="content" class="movie-contents">
+            <div class="inner">
+                <div class="top">
+                    <h2>SHOWBOX MOVIE</h2>
+                    <div class="menu-list">
+                        <ul>
+                            <li><a href="lineup.html">LINE-UP</a></li>
+                            <li class="active"><a href="now.html">NOW IN THEATERS</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mid">
+                    <!-- <div class="search-wrap">
+                        <input name="search" type="text" placeholder="검색어를 입력하세요." onkeyup="enterKey();" class="search">
+                    </div> -->
+                    <div class="movie-wrap"></div>
+                    <button class="more-btn">더보기</button>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- 푸터 -->
+        <footer id="footer" style="border-top: 1px solid #ddd;">
+            <div class="inner">
+                <div class="top">
+                    <div class="img-box"><img src="img/logo.png" alt="푸터 로고"></div>
+                </div>
+                <div class="txt">
+                    주소 서울특별시 강남구 도산대로 310(논현동) 916빌딩 7~9층
+                    <br> 전화 070-8854-1158
+                    <br> 이메일 jeongjw@showbox.co.kr
+                </div>
+                <div class="link">
+                    <a href="https://showbox.irpage.co.kr/#/agreements/terms-service" target="_blank">이용약관</a>
+                    <a href="https://showbox.irpage.co.kr/#/agreements/privacy-policy" target="_blank">개인정보 처리방침</a>
+                    <small>© 2019 SHOWBOX All rights reserved.</small>
+                </div>
+            </div>
+        </footer>
+
+        <!-- 맨위로 -->
+        <div class="scroll-top">
+            <a href="#"></a>
+        </div>
+    </div>
+    <script>
+        let page = 1;
+        const key = "c419c959580ade242b9ff7e6a664f241";
+        const base_url = "https://image.tmdb.org/t/p/w300/";
+        const container = document.querySelector(".movie-wrap");
+        
+        function fetchMovie(page){
+            const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=ko-KR&page=${page}`;
+            fetch(url)
+            .then(res => res.json())
+            .then(function(res){
+                const movies = res.results;
+                movies.map(function(movie){
+                    console.log(movie.title);
+                    const div = document.createElement('div');
+                    const output = `
+                        <div class="movie-img">
+                            <img src="${base_url + movie.poster_path}">
+                        </div>                        <h2 class="movie-title">${movie.title}</h2>
+                        <p class="movie-overview">${movie.overview}</p>
+                        <p class="release_date">개봉일: ${movie.release_date}</p>
+                    `;
+                    div.innerHTML = output;
+                    container.appendChild(div);
+                });
+            })
+            .catch(erro => console.log(erro));
+        };
+        
+        window.addEventListener('onLoad', fetchMovie());
+
+        function enterKey () {
+            if (window.event.keyCode == 13) { 
+                var movieName = document.querySelector('.search').value;
+                container.innerHTML = '';
+                searchMovie(movieName);
+            }
+        }
+
+        function searchMovie(movieName){
+            const url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=ko-KR&page=${page}&query=${movieName}`;
+            fetch(url)
+            .then(res => res.json())
+            .then(function(res){
+                const movies = res.results;
+                movies.map(function(movie){
+                    console.log(movie.title);
+                    const div = document.createElement('div');
+                    const output = `
+                        <img src="${base_url + movie.poster_path}" class="movie-img">
+                        <h2 class="movie-title">${movie.title}</h2>
+                        <p class="movie-overview">${movie.overview}</p>
+                        <p class="release_date">개봉일: ${movie.release_date}</p>
+                    `;
+                    div.innerHTML = output;
+                    container.appendChild(div);
+                });
+            })
+            .catch(erro => console.log(erro));
+        }
+
+
+        //더보기 버튼 클릭 리스너    
+        const moreButton = document.querySelector(".more-btn");
+        moreButton.addEventListener('click', function(){
+            if(page < 3){
+                page += 1;
+                fetchMovie(page);
+            } else {
+                this.disabled = true;
+            }
+        });
+    </script>
+        <script src="js/script.js"></script>
+</body>
+</html>

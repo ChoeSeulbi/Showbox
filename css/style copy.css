@@ -1,0 +1,55 @@
+header nav .logo a img {
+    width: 100%;
+    object-fit: contain;
+    vertical-align: middle;
+}
+.menu-list a {
+    color: #000;
+}
+.menu-list .title {
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: -0.3px;
+}
+.menu-list .sub-menu a {
+    font-size: 1.4em;
+}
+.menu-list > ul > li:not(:first-child) {
+    margin-top: 30px;
+}
+.mo_menu-btn {
+    border: none;
+}
+.mo_menu-btn span {
+    background: url(../img/ico-burger-w.png) center no-repeat;
+    background-size: contain;
+}
+.close-btn {
+    background: url(../img/ico_close.png) center no-repeat;
+    background-size: contain;
+    filter: invert(1);
+}
+.menu-list .sns-youtube a {
+    background: url(../img/youtube.svg) center no-repeat;
+    background-size: contain;
+}
+
+.menu-list .sns-instagram a {
+    background: url(../img/instagram.svg) center no-repeat;
+    background-size: 80%;
+}
+
+.menu-list .sns-facebook a {
+    background: url(../img/facebook.svg) center no-repeat;
+    background-size: 45%;
+}
+
+@media (min-width: 1024px) {
+    .dt_menu > ul > li a {
+        color: #fff;
+        font-weight: 500;
+    }
+    .dt_menu > ul > li a:hover {
+        color: darkorange;
+    }
+}

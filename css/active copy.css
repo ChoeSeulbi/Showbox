@@ -1,0 +1,12 @@
+.mo_menu.active {
+    animation: slideLeft 0.3s ease-in-out;
+}
+
+@keyframes slideLeft {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0;
+    }
+}

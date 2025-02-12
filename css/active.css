@@ -1,0 +1,70 @@
+#wrap.scroll header {
+    height: 56px;
+    /* box-sizing 속성 때문에 height에 border-bottom 1px 추가해서 56px이 돼야함 */
+    background-color: #000;
+    border-bottom: 1px solid #ddd;
+}
+body.hidden {
+    overflow: hidden;
+}
+.mo_menu.active {
+    animation: slideLeft 0.3s ease-in-out;
+}
+@keyframes slideLeft {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+@media (min-width: 1024px) {
+    #wrap.scroll header {
+        height: 61px;
+    }
+    #wrap.scroll header .dt_menu .sub-menu {
+        top: 61px;
+    }
+    .dt_menu ul li a:hover {
+        color: darkorange !important;
+    }
+    .dt_menu:hover .sub-menu {
+        display: block;
+    }
+    header.hover {
+        background-color: #fff !important;
+        border-bottom: 1px solid #ddd;
+    }
+    header.hover .dt_menu > ul a {
+        color: #000;
+    }
+}
+
+
+/* Company */
+.company-contents .top .menu-list li.active a {
+    color: darkorange;
+    font-weight: bold;
+}
+
+/* IR */
+.ir-contents .top .menu-list li.active a {
+    color: darkorange;
+    font-weight: bold;
+}
+.pagination li.active a {
+    font-weight: bold;
+    color: darkorange !important;
+}
+
+/* Line-Up */
+.movie-contents .top .menu-list li.active a {
+    color: darkorange;
+    font-weight: bold;
+}
+
+/* Detail */
+.detail-contents .top .menu-list li.active a {
+    color: darkorange;
+    font-weight: bold;
+}

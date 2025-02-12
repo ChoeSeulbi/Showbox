@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>SHOWBOX MAP</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/active.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="wrap">
+        <!-- skipnav -->
+        <div class="skipNav">
+            <ul>
+                <li><a href="#header">상단 정보로 이동</a></li>
+                <li><a href="#content">본문으로 이동</a></li>
+                <li><a href="#footer">하단 정보로 이동</a></li>
+            </ul>
+        </div>
+        <!-- 헤더 -->
+        <header id="header">
+            <nav>
+                <div class="inner">
+                    <div class="mo_top-header">
+                        <h1 class="logo"><a href="index.html"><img src="img/logo.png" alt=""></a></h1>
+                        <button class="open_menu-btn"></button>
+                    </div>
+                    <div class="mo_menu">
+                        <div class="top">
+                            <button class="close_menu-btn"></button>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu_sns">
+                                <ul>
+                                    <li class="sns-youtube"><a href="https://www.youtube.com/SHOWBOXmovie" target="_blank"></a></li>
+                                    <li class="sns-instagram"><a href="https://www.instagram.com/showbox.movie/" target="_blank"></a></li>
+                                    <li class="sns-facebook"><a href="https://www.facebook.com/Showbox.Movie" target="_blank"></a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="title">SHOWBOX MOVIE</a>
+                                <ul class="sub-menu">
+                                    <li><a href="lineup.html">LINE-UP</a></li>
+                                    <li><a href="now.html">NOW IN THEATERS</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="title">COMPANY</a>
+                                <ul class="sub-menu">
+                                    <li><a href="company.html">SHOWBOX</a></li>
+                                    <li><a href="history.html">HISTORY</a></li>
+                                    <li><a href="map.html">MAP</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="title">IR</a>
+                                <ul class="sub-menu">
+                                    <li><a href="notice.html">NOTICE</a></li>
+                                    <li><a href="recruit.html">RECRUIT</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dt_menu">
+                        <ul>
+                            <li><a href="lineup.html">SHOWBOX MOVIE</a></li>
+                            <li><a href="company.html">COMPANY</a></li>
+                            <li><a href="notice.html">IR</a></li>
+                        </ul>
+                        <div class="sub-menu">
+                            <ul>
+                                <li>
+                                    <a href="lineup.html" class="title">SHOWBOX MOVIE</a>
+                                    <ul>
+                                        <li><a href="lineup.html">LINE-UP</a></li>
+                                        <li><a href="now.html">NOW IN THEATERS</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="company.html" class="title">COMPANY</a>
+                                    <ul>
+                                        <li><a href="company.html">SHOWBOX</a></li>
+                                        <li><a href="history.html">HISTORY</a></li>
+                                        <li><a href="map.html">MAP</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="notice.html" class="title">IR</a>
+                                    <ul>
+                                        <li><a href="notice.html">NOTICE</a></li>
+                                        <li><a href="recruit.html">RECRUIT</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+
+        <!-- 콘텐츠 -->
+        <div id="content" class="company-contents">
+            <div class="inner">
+                <div class="top">
+                    <h2>COMPANY</h2>
+                    <div class="menu-list">
+                        <ul>
+                            <li><a href="company.html">SHOWBOX</a></li>
+                            <li><a href="history.html">HISTORY</a></li>
+                            <li class="active"><a href="map.html">MAP</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mid map">
+                    <!-- * 카카오맵 - 지도퍼가기 -->
+                    <!-- 1. 지도 노드 -->
+                    <div id="daumRoughmapContainer1683002008633" class="root_daum_roughmap root_daum_roughmap_landing map-box"></div>
+                    <!--
+                        2. 설치 스크립트
+                        * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+                    -->
+                    <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+                    <!-- 3. 실행 스크립트 -->
+                    <script charset="UTF-8">
+                        new daum.roughmap.Lander({
+                            "timestamp" : "1683002008633",
+                            "key" : "2en3p",
+                            // "mapWidth" : "640",
+                            "mapHeight" : "360"
+                        }).render();
+                    </script>
+
+                    <div class="txt">
+                        <div>
+                            <div class="title"><span></span>주소</div>
+                            <div class="desc">
+                                <span>우)06054 서울특별시 강남구 도산대로 310(논현동) 916빌딩 7~9층</span>
+                                <span>(7층) 경영지원본부(경영지원팀/재경팀)</span>
+                                <span>(8층) 대표이사실, 영화투자본부, 전략기획팀</span>
+                                <span>(9층) 영화운영본부(마케팅팀/배급팀/홍보팀/해외사업팀)</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="title"><span></span>Contact Us</div>
+                            <div class="desc">
+                                <span>TEL : 02-3218-5500</span>
+                                <span>FAX : 02-3218-5688 (7층)</span>
+                                <span>FAX : 02-3218-5588 (8층)</span>
+                                <span>FAX : 02-3444-6688 (9층)</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="title"><span></span>관련문의</div>
+                            <div class="desc">
+                                <span>판권/라이선스: digital_vod@showbox.co.kr</span>
+                                <span>마케팅 제휴: mkt@showbox.co.kr</span>
+                                <span>홍보: press@showbox.co.kr</span>
+                                <span>배급: distribution@showbox.co.kr</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+        <!-- 푸터 -->
+        <footer id="footer" style="border-top: 1px solid #ddd;">
+            <div class="inner">
+                <div class="top">
+                    <div class="img-box"><img src="img/logo.png" alt="푸터 로고"></div>
+                </div>
+                <div class="txt">
+                    주소 서울특별시 강남구 도산대로 310(논현동) 916빌딩 7~9층
+                    <br> 전화 070-8854-1158
+                    <br> 이메일 jeongjw@showbox.co.kr
+                </div>
+                <div class="link">
+                    <a href="https://showbox.irpage.co.kr/#/agreements/terms-service" target="_blank">이용약관</a>
+                    <a href="https://showbox.irpage.co.kr/#/agreements/privacy-policy" target="_blank">개인정보 처리방침</a>
+                    <small>© 2019 SHOWBOX All rights reserved.</small>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

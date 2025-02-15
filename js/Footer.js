@@ -16,6 +16,7 @@ class FooterComponent extends HTMLElement {
                     <a href="https://showbox.irpage.co.kr/#/agreements/privacy-policy" target="_blank">개인정보 처리방침</a>
                     <small>© 2019 SHOWBOX All rights reserved.</small>
                 </div>
+                <button id="openLoginBtn">관리자 로그인</button>
             </div>
         </footer>
           `;

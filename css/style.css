@@ -297,10 +297,11 @@ footer .link a:nth-child(2)::before {
 footer a {
   color: #fff;
 }
-footer .inner > button:last-child {
+footer .link > button:last-child {
   background-color: transparent;
   color: #fff;
   border: 0;
+  cursor: pointer;
 }
 /* Company */
 .company-contents .top h2 {

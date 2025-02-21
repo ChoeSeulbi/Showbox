@@ -66,44 +66,60 @@ function closePopup(popupId) {
   }
 }
 
-let signUpForm = document.getElementById("signUpForm");
-signUpForm.addEventListener("submit", (e) => {
+//회원가입
+function register() {
+  let e = window.event;
   e.preventDefault();
 
-  let userName = document.getElementById("userName").value;
   let userId = document.getElementById("userId").value;
+  let idInput = document.getElementById("userId");
   let userPw = document.getElementById("userPw").value;
+  let userName = document.getElementById("userName");
   let userBirth = document.getElementById("userBirth").value;
+  let errorTxt = document.createElement("p");
 
-  //유효성 검사
-  let isValid = true;
-  document.querySelectorAll(".error-text").forEach((error) => error.remove());
+  // if (
+  //   userName.length === 0 ||
+  //   userId.length === 0 ||
+  //   userPw.length === 0 ||
+  //   userBirth.length === 0
+  // ) {
+  //   e.preventDefault();
+  //   // alert("모든 입력창에 입력을 해주세요.");
+  //   return;
+  // }
 
-  //입력창 별 메세지
-  let fields = [
-    {id: "userName", message: "이름을 입력해주세요."},
-    {id: "userId", message: "아이디를 입력해주세요."},
-    {id: "userPw", message: "비밀번호를 입력해주세요."},
-    {id: "userBirth", message: "생일을 선택해주세요."},
-  ];
+  if (userName.value.length === 0) {
+    // console.log("X");
+    userName.after(errorTxt);
+    errorTxt.innerText = `이름을 입력해주세요.`;
+    // return;
+    // userName.after(errorTxt);
+    // errorTxt.innerText = `아이디를 입력해주세요.`;
+  } else if (userName.value.length > 0 && idInput.value.length === 0) {
+    // e.preventDefault();
+    // console.log("X");
+    userName.after("p").remove();
+    idInput.after(errorTxt);
+    errorTxt.innerText = `아이디를 입력해주세요.`;
+    return;
+  }
 
-  fields.forEach((field) => {
-    let input = document.getElementById(field.id);
-    let existingError = input.nextElementSibling; // input 바로 아래 요소 체크
+  let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    if (input.value.length === 0) {
-      if (!existingError) {
-        let errorTxt = document.createElement("p");
-        input.after(errorTxt);
-        errorTxt.innerHTML = field.message;
-      }
-      isValid = false;
-    } else {
-      if (existingError) {
-        input.nextElementSibling.remove();
-      }
-    }
-  });
+  if (users.some((user) => user.userId === userId)) {
+    e.preventDefault();
+    // alert("이미 등록된 아이디입니다.");
+    return;
+  }
+  let newUser = {
+    userName: userName.value,
+    userPw: userPw,
+    userId: userId,
+    userBirth: userBirth,
+  };
+  users.push(newUser);
+  localStorage.setItem("users", JSON.stringify(users));
 
-  if (!isValid) return;
-});
+  alert("회원가입 완료!");
+}

@@ -89,18 +89,38 @@ signUpForm.addEventListener("submit", (e) => {
 
   fields.forEach((field) => {
     let input = document.getElementById(field.id);
+    // let icCaution = document.querySelectorAll(".form-input > span");
+    // console.log(icCaution);
     let existingError = input.nextElementSibling; // input 바로 아래 요소 체크
 
     if (input.value.length === 0) {
       if (!existingError) {
         let errorTxt = document.createElement("p");
+        let cuationImg = document.createElement("span");
+        input.classList.add("error");
+
+        // if (input.classList.contains("error")) {
+        //   console.log(icCaution);
+        //   // icCaution.classList.add("ic-caution");
+        // }
+
+        // input.after(icCaution).classList.add("ic-caution");
+        // icCaution.classList.add("ic-caution");
         input.after(errorTxt);
+        input.nextElementSibling.after(cuationImg);
         errorTxt.innerHTML = field.message;
+        cuationImg.classList.add("ic-caution");
       }
       isValid = false;
     } else {
       if (existingError) {
-        input.nextElementSibling.remove();
+        //input 다음 p 태그가 존재하면
+        input.nextElementSibling.remove(); // 그 p태그를 삭제한다
+        input.classList.remove("error"); // 해당 input의 클래스는 삭제한다
+        if (existingError) {
+          //span에 대한 것
+          input.nextElementSibling.remove();
+        }
       }
     }
   });

@@ -341,6 +341,9 @@ fieldset {
   flex-direction: column;
   gap: 15px;
 }
+.popup-container .form-input {
+  position: relative;
+}
 .popup-container form div > p {
   color: red;
   padding: 5px 0 0 3px;
@@ -350,6 +353,20 @@ fieldset {
   padding: 12px 10px;
   border: 1px solid #aaa;
   border-radius: 4px;
+}
+.popup-container input.error {
+  border-color: red;
+}
+.popup-container span.ic-caution {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(../img/ic_caution.png) center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 13px;
+  right: 12px;
 }
 .popup-container fieldset button {
   padding: 12px 0;

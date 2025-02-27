@@ -15,14 +15,6 @@
   </head>
   <body>
     <div id="wrap">
-      <!-- skipnav -->
-      <div class="skipNav">
-        <ul>
-          <li><a href="#header">상단 정보로 이동</a></li>
-          <li><a href="#content">본문으로 이동</a></li>
-          <li><a href="#footer">하단 정보로 이동</a></li>
-        </ul>
-      </div>
       <!-- 헤더 -->
       <component-header></component-header>
 
@@ -69,6 +61,7 @@
             <div class="input-wrap">
               <span></span>
               <input
+                id="searchInput"
                 type="text"
                 placeholder="영화 제목을 검색해주세요."
                 onkeyup="enterKey();" />
@@ -78,8 +71,8 @@
       </div>
 
       <!-- 푸터 -->
-      <!-- <component-footer></component-footer> -->
-      <footer id="footer">
+      <component-footer></component-footer>
+      <!-- <footer id="footer">
         <div class="inner">
           <div class="top">
             <div class="img-box">
@@ -109,9 +102,9 @@
             </button>
           </div>
         </div>
-      </footer>
+      </footer> -->
       <!-- 로그인 팝업창 -->
-      <div class="popup-overlay" id="loginPopup">
+      <!-- <div class="popup-overlay" id="loginPopup">
         <div class="popup-container">
           <div class="popup-inner">
             <button class="close-btn" onclick="closePopup(loginPopup)">
@@ -145,9 +138,9 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- 회원가입 팝업창 -->
-      <div class="popup-overlay" id="signUpPopup">
+      <!-- <div class="popup-overlay" id="signUpPopup">
         <div class="popup-container">
           <div class="popup-inner">
             <button class="close-btn" onclick="closePopup(signUpPopup)">
@@ -187,21 +180,25 @@
                 <button type="submit">회원가입</button>
               </fieldset>
             </form>
-            <!-- <button class="sign_up-btn">회원가입</button> -->
           </div>
         </div>
-      </div>
-      <div class="dash-board">
-        <p class="text">냥냥냥냥님 오늘도 좋은 하루 보내세요!</p>
+      </div> -->
+      <!-- <div class="dash-board">
+        <p class="text"></p>
         <button class="logout-btn">로그아웃</button>
-      </div>
+      </div> -->
     </div>
     <script src="js/script.js"></script>
     <script type="text/javascript">
       //엔터 시, 라인업 페이지로 이동
       function enterKey() {
         if (window.event.keyCode == 13) {
-          window.location.href = "lineup.html";
+          let query = document.getElementById("searchInput").value;
+          if (query) {
+            window.location.href = `lineup.html?query=${encodeURIComponent(
+              query
+            )}`;
+          }
         }
       }
     </script>

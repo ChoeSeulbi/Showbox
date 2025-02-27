@@ -225,8 +225,6 @@ header nav {
   width: 100%;
   height: 200px;
   border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  /* background-color: #fff; */
 }
 .idx-contents .search > div {
   width: 100%;
@@ -419,6 +417,7 @@ fieldset {
   background: transparent;
   text-decoration: underline;
   padding: 0 5px;
+  cursor: pointer;
 }
 @media (min-width: 1024px) {
   footer > .inner {
@@ -438,7 +437,9 @@ fieldset {
     text-align: end;
   }
 }
-
+#content {
+  border-bottom: 1px solid #ddd;
+}
 /* Company */
 .company-contents {
   margin: 0 auto;

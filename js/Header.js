@@ -1,6 +1,14 @@
 class HeaderComponent extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
+          <!-- skipnav -->
+      <div class="skipNav">
+        <ul>
+          <li><a href="#header">상단 정보로 이동</a></li>
+          <li><a href="#content">본문으로 이동</a></li>
+          <li><a href="#footer">하단 정보로 이동</a></li>
+        </ul>
+      </div>
                 <header id="header">
             <nav>
                 <div class="inner">

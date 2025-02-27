@@ -164,11 +164,11 @@ loginForm.addEventListener("submit", (e) => {
   localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
 
   if (foundUser) {
-    alert(`${loginId}님, 환영합니다!`);
+    alert(`${foundUser.userName}님, 환영합니다!`);
     loginForm.reset();
     closePopup(loginPopup);
     let loginBtn = document.querySelector(".login-btn");
-    loginBtn.style.display = "none";
+    loginBtn.style.visibility = "hidden";
     setLoggedInState(foundUser.userName);
   } else {
     let inputPw = document.getElementById("loginPw");
@@ -197,5 +197,5 @@ let loginBtn = document.querySelector(".login-btn");
 logoutBtn.addEventListener("click", logoutUser);
 function logoutUser() {
   dashBoard.style.display = "none";
-  loginBtn.style.display = "block";
+  loginBtn.style.visibility = "visible";
 }

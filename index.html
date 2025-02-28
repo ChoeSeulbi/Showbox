@@ -47,7 +47,7 @@
               닿은 ‘스즈메’는 잊고 있던 진실과 마주하게 되는데…
             </p>
             <div class="go_detail-btn">
-              <a href="movie_detail.html">ABOUT THIS MOVIE</a>
+              <a>ABOUT THIS MOVIE</a>
             </div>
           </div>
           <a href="lineup.html" class="more_movie-btn"
@@ -201,6 +201,13 @@
           }
         }
       }
+
+      // 스즈메 id 916224
+      let movieId = 916224;
+      let goDetailBtn = document.querySelector(".go_detail-btn");
+      goDetailBtn.addEventListener("click", () => {
+        window.location.href = `movie_detail.html?id=${movieId}`;
+      });
     </script>
   </body>
 </html>

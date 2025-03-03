@@ -295,9 +295,6 @@ fieldset {
   padding: 0 20px;
   display: none;
 }
-/* .popup-show .popup-overlay {
-  display: block;
-} */
 .popup-container {
   width: calc(100% - 40px);
   max-width: 400px;
@@ -351,6 +348,22 @@ fieldset {
   padding: 12px 10px;
   border: 1px solid #aaa;
   border-radius: 4px;
+  position: relative;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+input[type="date"]::before {
+  color: #ddd;
 }
 .popup-container input.error {
   border-color: red;

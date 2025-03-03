@@ -31,14 +31,11 @@
           </div>
           <!-- 영화 상세 정보 -->
           <div class="mid detail">
-            <h2 class="title">xkdldm</h2>
-            <div>이미지</div>
-            <div>설명</div>
+            <div class="detail-top"></div>
+            <div class="detail-btm"></div>
           </div>
         </div>
       </div>
-
-      <!-- 타이틀, 포스터, 설명, 등장인물, 예고편? -->
 
       <!-- 푸터 -->
       <component-footer></component-footer>
@@ -53,7 +50,7 @@
         headers: {
           accept: "application/json",
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNDE5Yzk1OTU4MGFkZTI0MmI5ZmY3ZTZhNjY0ZjI0MSIsInN1YiI6IjYyMjk5NjllMTA5Y2QwMDA0NTkyNGVmMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cE41jpVp7Ygww8zxlTMu1A3t7tvlAb1kr9nXZZEGNJM",
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNDE5Yzk1OTU4MGFkZTI0MmI5ZmY3ZTZhNjY0ZjI0MSIsIm5iZiI6MTY0Njg5MjcwMi45MzUwMDAyLCJzdWIiOiI2MjI5OTY5ZTEwOWNkMDAwNDU5MjRlZjIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.vhD5yFM8jlH6ULPCzb1tkpcVLLNyNDODTzDrBivIAZY",
         },
       };
 
@@ -69,47 +66,115 @@
           .then((response) => response.json())
           .then(function (response) {
             // let movies = response.results;
-            console.log(response);
-            let detailContents = document.querySelector(".detail");
+            // console.log(response);
+            let detailContents = document.querySelector(".detail-top");
             // title.innerText = response.title;
 
             // let div = document.createElement("div");
             let html = `
               <h2>${response.title}</h2>
-              <div><img src="${posterUrl + response.poster_path}"></div>
-              <div>
-                <p>개봉일 : ${response.release_date}</p>
-                <p>장르 : ${response.genres
+              <div class="img-box"><img src="${
+                posterUrl + response.poster_path
+              }"></div>
+              <div class="movie-txt-box">
+                <p><span>개봉일</span>${response.release_date}</p>
+                <p><span>장르</span>${response.genres
                   .map((genre) => genre.name)
                   .join(", ")}</p>
-                <p>평점 : ${response.vote_average}</p>
-                <p>${response.overview}</p>  
+                <p><span>평점</span>${response.vote_average}</p>
+                <p><span>줄거리</span>${response.overview}</p>
               </div>
             `;
 
             detailContents.innerHTML = html;
-
-            // movies.map(function (movie) {
-            //   console.log(movie.title);
-            //   let div = document.createElement("div");
-            //   let html = `
-            //             <div class="img-wrap"><img src="${
-            //               posterUrl + movie.poster_path
-            //             }" alt="${movie.title}"></div>
-            //             <div class="movie-title"><a href="">${
-            //               movie.title
-            //             }</a></div>
-            //             <div class="movie-overview"><p>${
-            //               movie.overview
-            //             }</p></div>
-            //             `;
-            //   div.innerHTML = html;
-            //   container.appendChild(div);
-            // });
           })
           .catch((err) => console.error(err));
       }
-      window.addEventListener("load", fetchMovie());
+
+      function fetchDetail() {
+        fetch(
+          `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
+          options
+        )
+          .then((response) => response.json())
+          .then(function (response) {
+            let detailContents = document.querySelector(".detail-btm");
+
+            let html = `
+              <h3>등장인물</h3>
+              <div class="btn-box">
+                <button class="prev"></button>
+                <button class="next"></button>
+              </div>
+              <div class="actor-container">
+              ${response.cast
+                .map(
+                  (actor) => `
+                <div class="actor-card">
+                  ${
+                    actor.profile_path
+                      ? `<img src="${posterUrl + actor.profile_path}" alt="${
+                          actor.name
+                        }">`
+                      : `<span class="none-img">이미지가 존재하지 않습니다.</span>`
+                  }
+                  <p>
+                    <span>${actor.name}</span>${actor.original_name}
+                  </p>
+              </div>
+              `
+                )
+                .join("")}
+              </div>
+            `;
+            detailContents.innerHTML = html;
+
+            let actorNextBtn = document.querySelector(
+              ".detail-btm .btn-box .next"
+            );
+            let actorPrevBtn = document.querySelector(
+              ".detail-btm .btn-box .prev"
+            );
+            let slideIndex = 0;
+            let slideLength = response.cast.length;
+            let actorContainer = document.querySelector(
+              ".detail-btm .actor-container"
+            );
+            actorNextBtn.addEventListener("click", function () {
+              slideIndex++; // 슬라이드 인덱스 증가
+              if (slideIndex >= slideLength) {
+                slideIndex = 0; // 인덱스가 슬라이드 길이를 초과하면 초기화
+              }
+              actorContainer.style.transform = `translateX(${
+                slideIndex * -150
+              }px)`;
+            });
+            // actorPrevBtn.addEventListener("click", function () {
+            //   slideIndex--;
+            //   if (slideIndex === 0) {
+            //     return;
+            //   }
+            //   actorContainer.style.transform = `translateX(${
+            //     slideIndex * 150
+            //   }px)`;
+            // });
+            actorPrevBtn.addEventListener("click", function () {
+              slideIndex--; // 슬라이드 인덱스 감소
+              if (slideIndex < 0) {
+                slideIndex = slideLength - 1; // 첫 슬라이드에서 뒤로 가면 마지막 슬라이드로
+              }
+              actorContainer.style.transform = `translateX(${
+                slideIndex * -150
+              }px)`;
+            });
+          })
+          .catch((err) => console.error(err));
+      }
+
+      window.addEventListener("load", () => {
+        fetchMovie();
+        fetchDetail();
+      });
     </script>
   </body>
 </html>

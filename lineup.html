@@ -78,7 +78,7 @@
           .then((response) => response.json())
           .then(function (response) {
             let movies = response.results;
-            // console.log(movies);
+            console.log(movies);
             movies.map(function (movie) {
               // console.log(movie.title)
               let div = document.createElement("div");
@@ -86,9 +86,9 @@
                         <div class="img-wrap"><img src="${
                           posterUrl + movie.poster_path
                         }" alt="${movie.title}"></div>
-                        <div class="movie-title"><a href="">${
-                          movie.title
-                        }</a></div>
+                        <div class="movie-title"><a href="movie_detail.html?id=${
+                          movie.id
+                        }">${movie.title}</a></div>
                         <div class="movie-overview"><p>${
                           movie.overview
                         }</p></div>
@@ -96,6 +96,11 @@
               div.innerHTML = html;
               container.appendChild(div);
             });
+
+            // let movieTitle = document.querySelector(".movie-title");
+            // movieTitle.addEventListener("click", () => {
+            //   // console.log(this);
+            // });
           })
           .catch((err) => console.error(err));
       }
@@ -127,6 +132,7 @@
           .then((res) => res.json())
           .then(function (res) {
             const movies = res.results;
+            console.log(movies);
             movies.map(function (movie) {
               console.log(movie.title);
               const div = document.createElement("div");

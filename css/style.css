@@ -116,6 +116,7 @@ header nav .logo a img {
   width: 100%;
   height: 100%;
   position: relative;
+  cursor: pointer;
 }
 .idx-contents .now .go_detail-btn:before,
 .idx-contents .now .go_detail-btn:after,
@@ -565,8 +566,102 @@ footer .link > button:last-child {
 .detail-contents .top .menu-list li a {
   color: #eee;
 }
-/* 5/4 디테일 페이지만 만들면 됨 */
-
+.detail-contents .detail-top h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+.detail-contents .detail-top .img-box {
+  width: 100%;
+}
+.detail-contents .detail-top .img-box img {
+  width: 100%;
+  object-fit: contain;
+}
+.detail-contents .detail-top .movie-txt-box {
+  margin: 12px 0;
+}
+.detail-contents .detail-top .movie-txt-box p {
+  padding-bottom: 9px;
+  line-height: 21px;
+}
+.detail-contents .detail-top .movie-txt-box p > span {
+  color: darkorange;
+  font-size: 1.1rem;
+  padding-right: 18px;
+  position: relative;
+  font-weight: 700;
+}
+.detail-contents .detail-top .movie-txt-box p > span::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 1px;
+  background-color: darkorange;
+  bottom: 2px;
+  right: 4px;
+}
+.detail-contents .detail-btm {
+  margin-top: 50px;
+  position: relative;
+  overflow: hidden;
+}
+.detail-contents .detail-btm h3 {
+  font-size: 21px;
+  margin-bottom: 12px;
+}
+.detail-contents .detail-btm .btn-box {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+}
+.detail-contents .detail-btm .btn-box button {
+  background: transparent;
+  border: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #fff;
+  cursor: pointer;
+}
+.detail-contents .detail-btm .btn-box .prev {
+  border-left: 2px solid #fff;
+  transform: rotate(-45deg);
+}
+.detail-contents .detail-btm .btn-box .next {
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+}
+.detail-contents .detail-btm .actor-container {
+  display: flex;
+  gap: 20px;
+  transition: all 0.3s ease-out;
+}
+.detail-contents .detail-btm .actor-card img {
+  display: block;
+  width: 130px;
+  object-fit: contain;
+}
+.detail-contents .detail-btm .actor-card p {
+  color: darkorange;
+  margin-top: 5px;
+}
+.detail-contents .detail-btm .actor-card p span {
+  display: block;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+}
+.detail-contents .detail-btm .actor-card .none-img {
+  display: inline-flex;
+  width: 140px;
+  height: 210px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
+}
 /* 맨 위로 */
 .scroll-top {
   width: 35px;

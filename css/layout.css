@@ -699,11 +699,6 @@ input[type="date"]::before {
 .movie-wrap > div .movie-img {
   text-align: center;
 }
-/* .movie-wrap > div h2, .movie-wrap > div p {
-    max-width: 300px;
-    margin: 0 auto;
-} */
-
 .movie-wrap .img-wrap {
   text-align: center;
 }
@@ -726,7 +721,6 @@ input[type="date"]::before {
   .movie-wrap > div:nth-child(2) {
     margin-top: 0;
   }
-
   .movie-wrap .img-wrap {
     height: 450px;
   }
